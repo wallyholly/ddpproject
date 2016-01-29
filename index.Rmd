@@ -1,0 +1,56 @@
+---
+title       : DDP - Course Project
+subtitle    : Filtering mt-cars data on the fly
+author      : wally_holly
+job         : 
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---.class1
+
+## Goal of the app
+
+My little shiny app allows it to filter the mtcars dataset on the fly.
+
+1. The user enters the number of cylinders of a car.
+2. The user specify the lower and upper limit of the mpg value (Miles/(US) gallon)
+3. The app selects all cars from the data set that fulfill the criteria, selected by the user. 
+
+---.class #id
+
+## The data set
+- Data Set: mtcars
+- extracted from the 1974 Motor Trend US magazine
+- 32 cars; 11 variables:
+```{r}
+names(mtcars)
+```
+
+---
+
+## A quick look on the data
+```{r}
+head(mtcars)
+```
+
+---
+
+## Table of the cars by number of cylinders
+```{r, echo=FALSE}
+a<-as.data.frame(table(mtcars$cyl))
+colnames(a)<-c("No. of cylinders","frequency")
+print(a)
+```
+We can see that there are 11 cars with 4 cylinders, 7 cars with 6 cylinders and 14 models with 8 cylinders
+
+---
+
+## Histogram of the cars by mileage
+```{r, echo=FALSE}
+hist(mtcars$mpg)
+```
+
+---
